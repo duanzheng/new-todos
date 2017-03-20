@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import CSSModule from 'react-css-modules';
 import styles from './list.scss';
 import { Input, Alert } from 'antd';
+import TodoItem from './todoItem';
 
 @CSSModule(styles, {allowMultiple: true})
 class Todos extends Component {
@@ -14,12 +15,9 @@ class Todos extends Component {
                 <div>有<strong>2</strong>件准备做的事情</div>
                 <Input size="large" placeholder="请输入要做的事情" />
                 <ul styleName="list">
-                    <li styleName="item">
-                        <Alert message="第一件事" type="info" closable/>
-                    </li>
-                    <li styleName="item">
-                        <Alert message="第二件事" type="info" closable/>
-                    </li>
+                    {this.props.items.map((item, index) =>
+                        <TodoItem key={index} msg={item.desc} type="info"/>
+                    )}
                 </ul>
             </div>
         )
