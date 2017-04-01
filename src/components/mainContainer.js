@@ -4,10 +4,11 @@
 import React, { Component, propTypes } from 'react';
 import { connect } from 'react-redux';
 import CSSModule from 'react-css-modules';
-import styles from './mainContainer.scss';
 import Todos from './todos';
 import Doings from './doings';
 import Dones from './dones';
+
+import styles from './mainContainer.scss';
 
 @connect(
     state => ({
@@ -24,10 +25,12 @@ import Dones from './dones';
 class MainContainer extends Component {
     render() {
         return (
-            <div styleName="container">
-                <Todos items={this.props.todoList}/>
-                <Doings/>
-                <Dones/>
+            <div>
+                <div styleName="container">
+                    <Todos items={this.props.todoList}/>
+                    <Doings/>
+                    <Dones/>
+                </div>
             </div>
         )
     }
